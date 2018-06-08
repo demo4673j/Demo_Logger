@@ -40,6 +40,7 @@ public class Main extends Application {
 	
 	private void setTextArea() {
 		OutputStream outputStream = new TextAreaOutputStream(CONTROLLER_MAIN.textArea);
+		
 		MyStaticOutputStreamAppender.setStaticOutputStream(outputStream);
 	}
 	

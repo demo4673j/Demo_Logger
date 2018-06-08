@@ -6,7 +6,7 @@ import java.io.OutputStream;
 
 public class MyStaticOutputStreamAppender<E> extends OutputStreamAppender<E> {
 	
-	private static final DelegatingOutputStream DELEGATING_OUTPUT_STREAM = new DelegatingOutputStream(null);
+	private static DelegatingOutputStream DELEGATING_OUTPUT_STREAM = new DelegatingOutputStream();
 	
 	@Override
 	public void start() {

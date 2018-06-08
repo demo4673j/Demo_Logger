@@ -1,38 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 	
-	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+	<!-- Output to console -->
+	<appender name="ToStandardOut" class="ch.qos.logback.core.ConsoleAppender">
 		<layout class="ch.qos.logback.classic.PatternLayout">
 			<Pattern>
-				<!-- THE PATTERN IS NOT WORKING - INVESTIGATE -->
-				%-50(%d{HH:mm:ss} [%level{}] %class{0}.%method{0}\(\)) - %message{}%n{}
+				%-50(%d{HH:mm:ss} [%level{}] %class{0}.%method{0}\(\)) --- %message{}%n{}
 			</Pattern>
 		</layout>
 	</appender>
 	
-	<!--<appender name="MyCustomAppender" class=".src.main.java.Demo_Logger.MyStaticOutputStreamAppender">-->
-	<!--<appender name="MyCustomAppender" class="src.main.java.Demo_Logger.MyStaticOutputStreamAppender">-->
-	<!--<appender name="MyCustomAppender" class=".main.java.Demo_Logger.MyStaticOutputStreamAppender">-->
-	<!--<appender name="MyCustomAppender" class="main.java.Demo_Logger.MyStaticOutputStreamAppender">-->
-	<!--<appender name="MyCustomAppender" class=".java.Demo_Logger.MyStaticOutputStreamAppender">-->
-	<!--<appender name="MyCustomAppender" class="java.Demo_Logger.MyStaticOutputStreamAppender">-->
-	<!--<appender name="MyCustomAppender" class=".Demo_Logger.MyStaticOutputStreamAppender">-->
-	<!--<appender name="MyCustomAppender" class="Demo_Logger.MyStaticOutputStreamAppender">-->
-	<!--<appender name="MyCustomAppender" class=".MyStaticOutputStreamAppender">-->
-	<!--<appender name="MyCustomAppender" class="MyStaticOutputStreamAppender">-->
-	
-	<appender name="MyCustomAppender" class="Demo_Logger.MyStaticOutputStreamAppender">
+	<appender name="ToTextArea" class="Demo_Logger.MyStaticOutputStreamAppender">
 		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
 			<level>ALL</level>
 		</filter>
 		<encoder>
-			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n</pattern>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} -- %msg%n</pattern>
 		</encoder>
 	</appender>
 	
 	<root>
-		<appender-ref ref="STDOUT" />
-		<appender-ref ref="MyCustomAppender" />
+		<appender-ref ref="ToStandardOut" />
+		<appender-ref ref="ToTextArea" />
 	</root>
 
 </configuration>

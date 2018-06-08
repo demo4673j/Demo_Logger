@@ -20,8 +20,8 @@
 	</appender>
 	
 	<logger name="any" level="debug" additivity="false">
-		<appender-ref ref="FILE-DEBUG"/>
-		<appender-ref ref="STDOUT"/>
+		<appender-ref ref="FILE-DEBUG" />
+		<appender-ref ref="STDOUT" />
 	</logger>
 	
 	<root>
